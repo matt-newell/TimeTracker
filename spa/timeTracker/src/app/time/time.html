@@ -7,6 +7,7 @@
             <div class="form-group">
                 <div style="display:inline-block; padding-left:25%;">
                     <datepicker ng-model="dt" min-date="minDate" show-weeks="false" class="well well-sm"></datepicker>
+                    <h5>Current Date: {{dt | date:'MM/dd/yyyy'}}</h5>
                 </div>
             </div>
             <div class="form-group">
@@ -24,6 +25,10 @@
                 <input type="number" ng-model="hours" class="form-control">
             </div>
             <div class="form-group">
+                <label>Notes:</label>
+                <textarea rows="4" cols="50" ng-model="notes" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
                 <a class="pull-right btn btn-lg btn-success" ng-click="pushTime()">Add Entry</a>
             </div>
         </div>
@@ -37,6 +42,7 @@
             <th>Task</th>
             <th>Date</th>
             <th>Hours</th>
+            <th>Notes</th>
         </tr>
     </thead>
         <tbody>
@@ -45,6 +51,7 @@
                 <td>{{time.task.name}}</td>
                 <td>{{time.date | date:'MM/dd/yyyy'}}</td>
                 <td>{{time.hours}}</td>
+                <td>{{time.notes | limitTo: 10}}</td>
             </tr>
         </tbody>
     </table>
